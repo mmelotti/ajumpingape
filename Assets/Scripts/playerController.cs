@@ -1,15 +1,40 @@
 ﻿using UnityEngine;
-using System.Collections;
+
 
 public class playerController : MonoBehaviour {
 
-	// Use this for initialization
+    public float jumpForce = 15f;
+    private Vector2 initPosition;
+
 	void Start () {
-	
+        initPosition = transform.position;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    void Reset()
+    {
+        transform.position = initPosition;
+    }
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag.Equals("banana"))
+        {
+            Rigidbody2D rg = GetComponent<Rigidbody2D>();
+            rg.velocity = Vector2.zero;
+            rg.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+        } else if (other.tag.Equals("dead zone"))
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        Debug.Log("YOU LOSE");
+        Reset();
+        // TODO: Exibir tela de derrota
+        CameraFollow cam = FindObjectOfType<CameraFollow>();
+        cam.Reset(); 
+    }
 }
