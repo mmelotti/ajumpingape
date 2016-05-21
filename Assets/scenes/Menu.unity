@@ -85,10 +85,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &210269682 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 124472, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
-  m_PrefabInternal: {fileID: 1729313243}
 --- !u!1 &848147462
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,10 +232,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &1214167916 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 140556, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
-  m_PrefabInternal: {fileID: 1729313243}
 --- !u!1001 &1729313243
 Prefab:
   m_ObjectHideFlags: 0
@@ -319,14 +311,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11483122, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
-      propertyPath: lastScoreButton
-      value: 
-      objectReference: {fileID: 1214167916}
-    - target: {fileID: 11483122, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
-      propertyPath: bestScoreButton
-      value: 
-      objectReference: {fileID: 210269682}
+    - target: {fileID: 11470720, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
+      propertyPath: sceneToStart
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
   m_IsPrefabParent: 0
