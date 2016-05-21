@@ -313,7 +313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11470720, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
       propertyPath: sceneToStart
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b74c83d888174f4da4af0654eb9a3f5, type: 2}
