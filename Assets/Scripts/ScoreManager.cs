@@ -7,6 +7,12 @@ public class ScoreManager : MonoBehaviour {
 
 	public int lastScore;
 	public int bestScore;
+    [HideInInspector]
+    public int bananaCounter = 0;
+    [HideInInspector]
+    public int brainCounter = 1;
+
+    public enum Items { banana, brain};
 
 	public static ScoreManager Instance
 	{
@@ -14,8 +20,8 @@ public class ScoreManager : MonoBehaviour {
 		{
 			if (_instance == null)
 			{
-				GameObject fbm = new GameObject("ScoreManager");
-				fbm.AddComponent<ScoreManager>();
+				GameObject obj = new GameObject("ScoreManager");
+				obj.AddComponent<ScoreManager>();
 			}
 
 			return _instance;
@@ -31,5 +37,36 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	//TODO: Save a local score and load on start or awake.
+
+    void OnEnable()
+    {
+        PlayerController.ItemCollectedEvent += OnItemCollected;
+        PlayerController.PlayerDiedEvent += Reset;
+    }
+
+    void OnDisable()
+    {
+        PlayerController.ItemCollectedEvent -= OnItemCollected;
+        PlayerController.PlayerDiedEvent -= Reset;
+    }
+
+    void OnItemCollected(Items item)
+    {
+        switch(item)
+        {
+            case Items.banana:
+                bananaCounter+= (1 * brainCounter);
+                break;
+            case Items.brain:
+                brainCounter++;
+                break;
+        }
+    }
+
+    void Reset()
+    {
+        bananaCounter = 0;
+        brainCounter = 1;
+    }
 	
 }

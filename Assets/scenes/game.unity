@@ -177,6 +177,92 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e32aced9eaa4bb546996458c66097245, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &700857254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 700857256}
+  - 114: {fileID: 700857255}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &700857255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700857254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a3b2b0968eae943b5fd4400c692e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastScore: 0
+  bestScore: 0
+  bananaCounter: 0
+  brainCounter: 1
+--- !u!4 &700857256
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700857254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+--- !u!1 &777903712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 777903714}
+  - 114: {fileID: 777903713}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &777903713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777903712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a3b2b0968eae943b5fd4400c692e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastScore: 0
+  bestScore: 0
+  bananaCounter: 0
+  brainCounter: 1
+--- !u!4 &777903714
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777903712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!224 &904436735 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22424578, guid: 432776eb8409999449500a6ebd45d312,
@@ -223,7 +309,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22495824, guid: 57a38d67e57c0224cb6072b7577d9558, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 304
+      value: 78
       objectReference: {fileID: 0}
     - target: {fileID: 22495824, guid: 57a38d67e57c0224cb6072b7577d9558, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -417,7 +503,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22424578, guid: 432776eb8409999449500a6ebd45d312, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 116
+      value: 271
       objectReference: {fileID: 0}
     - target: {fileID: 22424578, guid: 432776eb8409999449500a6ebd45d312, type: 2}
       propertyPath: m_AnchoredPosition.y

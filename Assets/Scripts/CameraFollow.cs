@@ -29,9 +29,9 @@ public class CameraFollow : MonoBehaviour {
 
 		cameraOffset = 3.5F - velocity;
 
-		Debug.Log( "lastYPos: " +lastYPos+ " Velocity:" + velocity);
+		//Debug.Log( "lastYPos: " +lastYPos+ " Velocity:" + velocity);
 			
-		Debug.Log ( "player position y : " + player.transform.position.y + " camera position y: " + transform.position.y);
+		//Debug.Log ( "player position y : " + player.transform.position.y + " camera position y: " + transform.position.y);
 
 		if (player.transform.position.y > transform.position.y - cameraOffset)
         {
