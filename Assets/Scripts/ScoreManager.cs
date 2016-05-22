@@ -22,6 +22,7 @@ public class ScoreManager : MonoBehaviour {
 			{
 				GameObject obj = new GameObject("ScoreManager");
 				obj.AddComponent<ScoreManager>();
+				obj.GetComponent<ScoreManager>().bestScore = PlayerPrefs.GetInt ("bestScore");
 			}
 
 			return _instance;
@@ -68,5 +69,16 @@ public class ScoreManager : MonoBehaviour {
         bananaCounter = 0;
         brainCounter = 1;
     }
+
+	public void updateScore()
+	{
+		if (bananaCounter > bestScore) {
+			bestScore = bananaCounter;
+		}
+
+		lastScore = bananaCounter;
+
+		PlayerPrefs.SetInt("bestScore", bestScore);
+	}
 	
 }

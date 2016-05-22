@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 public class PlayerController : MonoBehaviour {
 
     public float jumpForce = 15f;
 	public float startingForce = 15f;
+
+	public int sceneToLoadOnDeath = 1;
 
 	private bool firstJump = true;
 	private Vector2 initPosition;
@@ -57,12 +60,18 @@ public class PlayerController : MonoBehaviour {
     private void Death()
     {
         Debug.Log("YOU LOSE");
+
+		ScoreManager sm = ScoreManager.Instance;
+		sm.updateScore ();
+
         if (PlayerDiedEvent != null)
         {
             PlayerDiedEvent();
         }
-        Reset();        
+        /*Reset();        
         CameraFollow cam = FindObjectOfType<CameraFollow>();
-        cam.Reset(); 
+        cam.Reset(); */
+
+		SceneManager.LoadScene (sceneToLoadOnDeath);
     }
 }
