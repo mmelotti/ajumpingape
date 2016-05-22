@@ -4,7 +4,7 @@ using System.Collections;
 public class DestroyByCollision : MonoBehaviour {
 
 	// Use this for initialization
-	void OnTriggerEnter(Collider other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		Debug.Log ("Trigger Enter call");
 		if (other.tag == "DestroyerWall") {

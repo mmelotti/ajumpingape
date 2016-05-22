@@ -123,7 +123,7 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 			} else {
 				for (int i = 0; i < currentPattern.GetLength (1); i++) {
 					int value = currentPattern [patternLineExecuted, i];
-					Debug.Log ("Pattern cur Row"+patternLineExecuted+" Col:" + i+ " value:" + currentPattern [patternLineExecuted, i]);
+					//Debug.Log ("Pattern cur Row"+patternLineExecuted+" Col:" + i+ " value:" + currentPattern [patternLineExecuted, i]);
 					if (value==1) {
 						ActivateObjectBananaAtWaypoint (i+offset);
 					}
