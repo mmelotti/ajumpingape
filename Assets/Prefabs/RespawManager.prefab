@@ -46,7 +46,7 @@ MonoBehaviour:
   waypointToInstantiate: {fileID: 170150, guid: 1f42179892babac4cb9f675d052a3719,
     type: 2}
   bananaToInstantiate: {fileID: 127928, guid: e64411ee252c6fc458972359d7c70090, type: 2}
-  brainToInstantiate: {fileID: 189474, guid: d76d5b9a513fed94dbe488cc78a3040e, type: 2}
+  brainToInstantiate: {fileID: 161024, guid: f65c50cd032345144ac51f1c1a03c63b, type: 2}
   bananaPoolSize: 50
   brainPoolSize: 5
   respawTime: 0.3

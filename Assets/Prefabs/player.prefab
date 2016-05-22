@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5077808}
   - 61: {fileID: 6170598}
   - 114: {fileID: 11407082}
+  - 114: {fileID: 11490816}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -74,6 +75,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 15
+--- !u!114 &11490816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c5929572e6d5c41b5050989e3ee9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterGameSpeed: 10
+  screenLimitsAxisX: 2.5
 --- !u!212 &21273304
 SpriteRenderer:
   m_ObjectHideFlags: 1

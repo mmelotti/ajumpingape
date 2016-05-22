@@ -9,12 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 439474}
   - 212: {fileID: 21273020}
-  - 114: {fileID: 11410364}
   - 61: {fileID: 6156106}
-  - 50: {fileID: 5085666}
   m_Layer: 0
   m_Name: brain
-  m_TagString: Untagged
+  m_TagString: brain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,23 +29,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5085666
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161024}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &6156106
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -62,20 +43,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 2.34, y: 3.02}
---- !u!114 &11410364
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ab76879a8303e4d898b202374fd63b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 300
-  jumpSpeed: 8
-  gravity: 20
 --- !u!212 &21273020
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -102,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d356abe777c7e3944b1cdb5d35b69330, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3890b9e3e2fa834d947a4a724b00863, type: 3}
   m_Color: {r: 0.75294125, g: 0.75294125, b: 0.75294125, a: 1}
   m_FlipX: 0
   m_FlipY: 0
