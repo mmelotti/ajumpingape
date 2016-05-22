@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 449712}
   - 212: {fileID: 21204972}
-  - 61: {fileID: 6117030}
   - 114: {fileID: 11458888}
-  - 50: {fileID: 5076390}
+  - 114: {fileID: 11464274}
+  - 114: {fileID: 11432070}
+  - 65: {fileID: 6587056}
   m_Layer: 0
   m_Name: banana
   m_TagString: banana
@@ -31,37 +32,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5076390
-Rigidbody2D:
-  serializedVersion: 2
+--- !u!65 &6587056
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127928}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &6117030
-BoxCollider2D:
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.17, y: 0.57, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11432070
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127928}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1.17, y: 0.57}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a9fc4314ff0a3845a73afc6c375da09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11458888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +66,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b377e4a809393e347a62619aeba1dc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11464274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ab76879a8303e4d898b202374fd63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 300
+  jumpSpeed: 8
+  gravity: 20
 --- !u!212 &21204972
 SpriteRenderer:
   m_ObjectHideFlags: 1
