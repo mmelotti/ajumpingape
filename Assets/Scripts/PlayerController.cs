@@ -4,7 +4,9 @@ using System;
 
 public class PlayerController : MonoBehaviour {
 
+    [HideInInspector]
     public float jumpForce = 15f;
+    [HideInInspector]
 	public float startingForce = 15f;
 
 	public int sceneToLoadOnDeath = 1;
@@ -17,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 
     void Start () {
         initPosition = transform.position;
+        jumpForce = GameManager.Instance.JumpForce;
+        startingForce = GameManager.Instance.StartJumpForce;
 	}
 
     void Reset()

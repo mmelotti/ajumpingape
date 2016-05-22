@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class AccelerometerInput : MonoBehaviour 
 {
-
+    [HideInInspector]
 	public float characterGameSpeed = 10.0F;
 	public float screenLimitsAxisX = 2.5F;
 
 	void Start(){
-		//TODO: Get Speed from GameManager
+        characterGameSpeed = GameManager.Instance.PlayerHorizontalSpeed;
 	}
 
 	void Update() {
@@ -17,8 +16,7 @@ public class AccelerometerInput : MonoBehaviour
         dir.x = Input.acceleration.normalized.x;
         dir *= Time.deltaTime * characterGameSpeed;
 		transform.Translate(dir);
-
-		//Debug.Log ("transform.localPosition.x: " + transform.localPosition.x);
+        
 		if (transform.localPosition.x > screenLimitsAxisX) {			
 			transform.Translate(-(transform.localPosition.x-screenLimitsAxisX), 0, 0);
 		}

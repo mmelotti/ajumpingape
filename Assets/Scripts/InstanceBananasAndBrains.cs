@@ -12,6 +12,13 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 	public GameObject bananaToInstantiate = null;
 	public GameObject brainToInstantiate = null;
 
+    public float bananaRespawTime;
+	public float brainRespawTime;
+    [HideInInspector]
+	public float bananaRespawDeltaY;
+    [HideInInspector]
+	public float brainRespawDeltaY;
+
 	private GameObject[] bananaPool = null;
 	private GameObject[] brainPool = null;
 
@@ -27,7 +34,8 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		//TODO: also get the parameters from GameBalanceManager
+        bananaRespawDeltaY = GameManager.Instance.BananaSpawDeltaY;
+        brainRespawDeltaY = GameManager.Instance.BrainSpawDeltaY;
 
 		waypoints = new GameObject[numberOfWaypoints];
 		float currentWaypointPosition = initialXPosition;
@@ -99,11 +107,7 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 	}
 
 
-	public float bananaRespawTime;
-	public float brainRespawTime;
 
-	public float bananaRespawDeltaY;
-	public float brainRespawDeltaY;
 
 
 	private float timer;
