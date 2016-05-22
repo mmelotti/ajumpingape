@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  scoreCounterText: {fileID: 143544}
 --- !u!222 &22208300
 CanvasRenderer:
   m_ObjectHideFlags: 1

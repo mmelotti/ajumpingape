@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class CounterController : MonoBehaviour {
 
     public ScoreManager.Items type;
-	public GameObject scoreCounterText;
 
 
     void OnEnable()
@@ -22,17 +21,17 @@ public class CounterController : MonoBehaviour {
     void UpdateCounter(ScoreManager.Items item)
     {
         Text counterTxt = GetComponentInChildren<Text>();
-		Text scoreToUpdateTxt = scoreCounterText.GetComponentInChildren<Text>();
         string text = "0";
+        
         if (type.Equals(ScoreManager.Items.banana))
         {
             text = ScoreManager.Instance.bananaCounter.ToString();
-			Debug.Log("scorecounter: "+ScoreManager.Instance.scoreCounter.ToString ());
-			scoreToUpdateTxt.text = ""+ScoreManager.Instance.scoreCounter.ToString ();
-
         } else if (type.Equals(ScoreManager.Items.brain))
         {
             text = ScoreManager.Instance.brainCounter.ToString() + "X";
+        } else if (type.Equals(ScoreManager.Items.score))
+        {
+            text = ScoreManager.Instance.scoreCounter.ToString();
         }
         counterTxt.text = text;
     }

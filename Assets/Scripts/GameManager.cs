@@ -5,8 +5,8 @@ public class GameManager : MonoBehaviour {
 
     private static GameManager _instance;
     public float PlayerHorizontalSpeed = 10;
-    public float BrainSpawDeltaY = 5;
-    public float BananaSpawDeltaY = 20;
+    public float BrainSpawDeltaY = 20;
+    public float BananaSpawDeltaY = 5;
     public float JumpForce = 15;
     public float StartJumpForce = 15;
     private bool updated = false;
