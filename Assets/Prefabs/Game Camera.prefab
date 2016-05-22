@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 492678}
   - 61: {fileID: 6106260}
+  - 50: {fileID: 5045806}
   m_Layer: 0
   m_Name: DeadZone
   m_TagString: DestroyerWall
@@ -159,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.79, z: 0}
+  m_LocalPosition: {x: 0, y: -12.79, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 405984}
@@ -171,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalPosition: {x: 0, y: 7, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 405984}
@@ -210,6 +211,23 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!50 &5045806
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159210}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6106260
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -250,8 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cameraOffset: 5
-  characterGameSpeed: 10
+  cameraOffset: 3.5
+  characterGameSpeed: 100
 --- !u!114 &11436498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,10 +289,14 @@ MonoBehaviour:
     type: 2}
   bananaToInstantiate: {fileID: 127928, guid: e64411ee252c6fc458972359d7c70090, type: 2}
   brainToInstantiate: {fileID: 161024, guid: f65c50cd032345144ac51f1c1a03c63b, type: 2}
+  camera: {fileID: 183488}
+  world: {fileID: 0}
   bananaPoolSize: 50
   brainPoolSize: 5
-  respawTime: 1
+  bananaRespawTime: 0
   brainRespawTime: 5
+  bananaRespawDeltaY: 5
+  brainRespawDeltaY: 20
 --- !u!124 &12436288
 Behaviour:
   m_ObjectHideFlags: 1

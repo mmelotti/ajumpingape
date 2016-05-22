@@ -7,7 +7,7 @@ public class DestroyByCollision : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		Debug.Log ("Trigger Enter call");
-		if (other.tag == "DestroyerWall") {
+		if (other.tag == "DestroyerWall" || other.tag == "Player") {
 			//gameObject.GetComponent<SimpleMove> ().setToBounce ();
 			//Debug.Log ("Trigger Enter collide with obstacle");
 			gameObject.SetActive(false);

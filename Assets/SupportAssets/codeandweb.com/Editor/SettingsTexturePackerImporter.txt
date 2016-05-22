@@ -1,5 +1,8 @@
 version: 2
 importPivots: 1
 tpsheetFileNames:
+- Assets/Sprites/Banana.tpsheet
 textureFileNames:
+- Assets/Sprites/Banana.png
 normalmapFileNames:
+- 

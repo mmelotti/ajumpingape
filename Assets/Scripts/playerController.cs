@@ -4,7 +4,11 @@
 public class playerController : MonoBehaviour {
 
     public float jumpForce = 15f;
-    private Vector2 initPosition;
+	public float startingForce = 15f;
+
+	private bool firstJump = true;
+	private Vector2 initPosition;
+
 
 	void Start () {
         initPosition = transform.position;
@@ -20,9 +24,15 @@ public class playerController : MonoBehaviour {
     {
         if (other.tag.Equals("banana"))
         {
-            Rigidbody2D rg = GetComponent<Rigidbody2D>();
-            rg.velocity = Vector2.zero;
-            rg.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+			Rigidbody2D rg = GetComponent<Rigidbody2D>();
+			rg.velocity = Vector2.zero;
+
+			if (firstJump) {
+				firstJump = false;
+				rg.AddForce(Vector2.up * startingForce,ForceMode2D.Impulse);
+			}
+			rg.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+
         } else if (other.tag.Equals("DestroyerWall"))
         {
             Death();

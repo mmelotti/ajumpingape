@@ -15,6 +15,11 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 	private GameObject[] bananaPool = null;
 	private GameObject[] brainPool = null;
 
+	public GameObject camera = null;
+
+	//This is needed to attach the itens in the world, so they will not follow the camera!
+	public GameObject world = null;
+
 	public int bananaPoolSize = 50;
 	public int brainPoolSize = 5;
 
@@ -36,7 +41,7 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 		bananaPool = new GameObject[bananaPoolSize];
 		for (int i = 0; i < bananaPoolSize; i++) {
 			bananaPool [i] = Instantiate (bananaToInstantiate) as GameObject;
-			bananaPool [i].transform.parent = gameObject.transform;
+			bananaPool [i].transform.parent = world.transform;
 			bananaPool [i].SetActive (false);
 		}
 
@@ -44,7 +49,7 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 		brainPool = new GameObject[brainPoolSize];
 		for (int i = 0; i < brainPoolSize; i++) {
 			brainPool [i] = Instantiate (brainToInstantiate) as GameObject;
-			brainPool [i].transform.parent = gameObject.transform;
+			brainPool [i].transform.parent = world.transform;
 			brainPool [i].SetActive (false);
 		}
 
@@ -94,8 +99,13 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 	}
 
 
-	public float respawTime;
+	public float bananaRespawTime;
 	public float brainRespawTime;
+
+	public float bananaRespawDeltaY;
+	public float brainRespawDeltaY;
+
+
 	private float timer;
 	private float timer2;
 
@@ -104,47 +114,70 @@ public class InstanceBananasAndBrains : MonoBehaviour {
 	private int patternLineExecuted = 0;
 	private int offset = 0;
 
+	//Change de logic to create bananas based on camera position
+	private float highestPosition = 0;
+
+	private float lastBananaRespawY = 0;
+	private float lastBrainRespawY = 0;
+
 	//First test to instantiate by time
 	void Update()
 	{
-		if (Time.time > timer + respawTime) {
-			timer = Time.time;
-			//ActivateObjectBanana ();
+		if (camera.transform.position.y > highestPosition) {
+			highestPosition = camera.transform.position.y;
 
-			if (currentPattern == null) currentPattern = respaw.getNextPattern ();
+			//if (Time.time > timer + respawTime) {
+			//	timer = Time.time;
 
-			if (patternLineExecuted >= currentPattern.GetLength(0)) {
-				currentPattern = respaw.getNextPattern ();
-				patternLineExecuted = 0;
-				// When we create a new Pattern, it can be spawned in diferent positions considering a random offset
-				int maxOffset = numberOfWaypoints - currentPattern.GetLength (1);
-				offset = Random.Range (0, maxOffset);
+			// if delta transladed more than respawDeltaY we should release next "banana Wave"
+			if (highestPosition - lastBananaRespawY >= bananaRespawDeltaY) {
+				lastBananaRespawY = highestPosition;
 
-			} else {
-				for (int i = 0; i < currentPattern.GetLength (1); i++) {
-					int value = currentPattern [patternLineExecuted, i];
-					//Debug.Log ("Pattern cur Row"+patternLineExecuted+" Col:" + i+ " value:" + currentPattern [patternLineExecuted, i]);
-					if (value==1) {
-						ActivateObjectBananaAtWaypoint (i+offset);
+				if (currentPattern == null)
+					currentPattern = respaw.getNextPattern ();
+
+				if (patternLineExecuted >= currentPattern.GetLength (0)) {
+					currentPattern = respaw.getNextPattern ();
+					patternLineExecuted = 0;
+					// When we create a new Pattern, it can be spawned in diferent positions considering a random offset
+					int maxOffset = numberOfWaypoints - currentPattern.GetLength (1);
+					offset = Random.Range (0, maxOffset);
+
+				} else {
+					for (int i = 0; i < currentPattern.GetLength (1); i++) {
+						int value = currentPattern [patternLineExecuted, i];
+						//Debug.Log ("Pattern cur Row"+patternLineExecuted+" Col:" + i+ " value:" + currentPattern [patternLineExecuted, i]);
+						if (value == 1) {
+							ActivateObjectBananaAtWaypoint (i + offset);
+						}
 					}
+					patternLineExecuted++;
 				}
-				patternLineExecuted++;
+
+
+				//ActivateObjectBananaAtWaypoint(currentWaypoint);
+				//currentWaypoint++;
+				//if (currentWaypoint >= numberOfWaypoints)
+				//	currentWaypoint = 0;
 			}
 
+			if (highestPosition - lastBrainRespawY >= brainRespawDeltaY) {
 
-			//ActivateObjectBananaAtWaypoint(currentWaypoint);
-			//currentWaypoint++;
-			//if (currentWaypoint >= numberOfWaypoints)
-			//	currentWaypoint = 0;
+				lastBrainRespawY = highestPosition;
+
+				int offset = Random.Range (0, numberOfWaypoints);
+
+				ActivateObjectBrainAtWaypoint (offset);
+			}
 		}
 
-		if (Time.time > timer2 + brainRespawTime) {
+		/* if (Time.time > timer2 + brainRespawTime) {
 			timer2 = Time.time;
 							
 			int offset = Random.Range (0, numberOfWaypoints);
 
 			ActivateObjectBrainAtWaypoint (offset);
-		}
+		}*/
 
 
 	}
