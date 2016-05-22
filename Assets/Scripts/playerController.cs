@@ -23,7 +23,7 @@ public class playerController : MonoBehaviour {
             Rigidbody2D rg = GetComponent<Rigidbody2D>();
             rg.velocity = Vector2.zero;
             rg.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
-        } else if (other.tag.Equals("dead zone"))
+        } else if (other.tag.Equals("DestroyerWall"))
         {
             Death();
         }

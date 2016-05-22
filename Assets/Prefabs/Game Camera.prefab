@@ -31,6 +31,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &114726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 498448}
+  - 114: {fileID: 11436498}
+  m_Layer: 0
+  m_Name: RespawManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &133258
 GameObject:
   m_ObjectHideFlags: 1
@@ -58,7 +74,7 @@ GameObject:
   - 61: {fileID: 6106260}
   m_Layer: 0
   m_Name: DeadZone
-  m_TagString: dead zone
+  m_TagString: DestroyerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +111,7 @@ Transform:
   m_Children:
   - {fileID: 427880}
   - {fileID: 492678}
+  - {fileID: 498448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &427880
@@ -147,6 +164,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 405984}
   m_RootOrder: 1
+--- !u!4 &498448
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 405984}
+  m_RootOrder: 2
 --- !u!20 &2084452
 Camera:
   m_ObjectHideFlags: 1
@@ -223,6 +252,29 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraOffset: 5
   characterGameSpeed: 10
+--- !u!114 &11436498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acf8e454fe275f4fb8c9d5862e568e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  numberOfWaypoints: 21
+  waypointsInterval: 0.25
+  initialXPosition: -2.5
+  waypointToInstantiate: {fileID: 170150, guid: 1f42179892babac4cb9f675d052a3719,
+    type: 2}
+  bananaToInstantiate: {fileID: 127928, guid: e64411ee252c6fc458972359d7c70090, type: 2}
+  brainToInstantiate: {fileID: 161024, guid: f65c50cd032345144ac51f1c1a03c63b, type: 2}
+  bananaPoolSize: 50
+  brainPoolSize: 5
+  respawTime: 1
+  brainRespawTime: 5
 --- !u!124 &12436288
 Behaviour:
   m_ObjectHideFlags: 1
