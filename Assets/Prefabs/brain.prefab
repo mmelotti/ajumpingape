@@ -13,6 +13,7 @@ GameObject:
   - 61: {fileID: 6163728}
   - 50: {fileID: 5050388}
   - 114: {fileID: 11402262}
+  - 114: {fileID: 11445028}
   m_Layer: 0
   m_Name: brain
   m_TagString: brain
@@ -91,6 +92,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9fc4314ff0a3845a73afc6c375da09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11445028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a893d5d2ca8b5d42bb9ee7345512086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorSpeed: 2.5
 --- !u!212 &21273020
 SpriteRenderer:
   m_ObjectHideFlags: 1
