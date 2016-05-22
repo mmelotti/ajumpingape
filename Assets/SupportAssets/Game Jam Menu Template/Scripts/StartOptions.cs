@@ -86,6 +86,19 @@ public class StartOptions : MonoBehaviour {
 		SceneManager.LoadScene (sceneToStart);
 	}
 
+	public void LoadDelayedScene(int scene)
+	{
+		//Pause button now works if escape is pressed since we are no longer in Main menu.
+		inMainMenu = false;
+
+		//Hide the main menu UI element
+		showPanels.HideMenu ();
+
+		//Load the selected scene, by scene index number in build settings
+		SceneManager.LoadScene (scene);
+		SceneManager.UnloadScene (0); // 0 represents this scene
+	}
+
 	public void HideDelayed()
 	{
 		//Hide the main menu UI element after fading out menu for start game in scene
