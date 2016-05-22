@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
     /// <returns></returns>
     public IEnumerator LoadBalanceValues()
     {
-        WWW www = new WWW(HOST_URL + "balance/?format=json");
+        WWW www = new WWW(HOST_URL + "/api/gamebalance?format=json");
         yield return www;
 
         if (www.error != null)
