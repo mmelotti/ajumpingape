@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     public float JumpForce = 15;
     public float StartJumpForce = 15;
     private bool updated = false;
-    private string HOST_URL = " http://104.236.107.223:8181/";
+    private string HOST_URL = "http://104.236.107.223:8181/";
     private bool loading = false;
 
 
@@ -35,13 +35,20 @@ public class GameManager : MonoBehaviour {
         _instance = this;
     }
 
-    class BalanceInfo
+    [System.Serializable]
+    public class BalanceInfo
     {
-        public float PlayerHorizontalSpeed;
-        public float BrainSpawDeltaY;
-        public float BananaSpawDeltaY;
-        public float JumpForce;
-        public float StartJumpForce;
+        public float playerHorizontalSpeed;
+        public float brainSpawDeltaY;
+        public float bananaSpawDeltaY;
+        public float jumpForce;
+        public float startJumpForce;
+
+        public static BalanceInfo CreateFromJSON(string jsonString)
+        {
+            return JsonUtility.FromJson<BalanceInfo>(jsonString);
+        }
+
     }
 
     void Start()
@@ -61,7 +68,7 @@ public class GameManager : MonoBehaviour {
     /// <returns></returns>
     public IEnumerator LoadBalanceValues()
     {
-        WWW www = new WWW(HOST_URL + "/api/gamebalance?format=json");
+        WWW www = new WWW(HOST_URL + "api/gamebalance?format=json");
         yield return www;
 
         if (www.error != null)
@@ -72,12 +79,13 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            BalanceInfo info = JsonUtility.FromJson<BalanceInfo>(www.text);
-            PlayerHorizontalSpeed = info.PlayerHorizontalSpeed;
-            BrainSpawDeltaY = info.BrainSpawDeltaY;
-            BananaSpawDeltaY = info.BananaSpawDeltaY;
-            JumpForce = info.JumpForce;
-            StartJumpForce = info.StartJumpForce;
+            BalanceInfo info = BalanceInfo.CreateFromJSON(www.text);
+            Debug.Log("BalanceInfo:" + info);
+            PlayerHorizontalSpeed = info.playerHorizontalSpeed;
+            BrainSpawDeltaY = info.brainSpawDeltaY;
+            BananaSpawDeltaY = info.bananaSpawDeltaY;
+            JumpForce = info.jumpForce;
+            StartJumpForce = info.startJumpForce;
             loading = false;
             updated = true;
         }
