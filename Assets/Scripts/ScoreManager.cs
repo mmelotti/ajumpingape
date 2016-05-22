@@ -12,7 +12,10 @@ public class ScoreManager : MonoBehaviour {
     [HideInInspector]
     public int brainCounter = 1;
 
-    public enum Items { banana, brain};
+	[HideInInspector]
+	public int scoreCounter = 0;
+
+    public enum Items { banana, brain, score };
 
 	public static ScoreManager Instance
 	{
@@ -55,8 +58,9 @@ public class ScoreManager : MonoBehaviour {
     {
         switch(item)
         {
-            case Items.banana:
-                bananaCounter+= (1 * brainCounter);
+			case Items.banana:
+				scoreCounter += brainCounter;
+				bananaCounter++;
                 break;
             case Items.brain:
                 brainCounter++;
@@ -68,15 +72,16 @@ public class ScoreManager : MonoBehaviour {
     {
         bananaCounter = 0;
         brainCounter = 1;
+		scoreCounter = 0;
     }
 
 	public void updateScore()
 	{
-		if (bananaCounter > bestScore) {
-			bestScore = bananaCounter;
+		if (scoreCounter > bestScore) {
+			bestScore = scoreCounter;
 		}
 
-		lastScore = bananaCounter;
+		lastScore = scoreCounter;
 
 		PlayerPrefs.SetInt("bestScore", bestScore);
 	}

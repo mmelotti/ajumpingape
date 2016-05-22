@@ -4,9 +4,7 @@ using System;
 
 public class PlayerController : MonoBehaviour {
 
-    [HideInInspector]
     public float jumpForce = 15f;
-    [HideInInspector]
 	public float startingForce = 15f;
 
 	public int sceneToLoadOnDeath = 1;
@@ -15,12 +13,14 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 initPosition;
 
     public static event Action<ScoreManager.Items> ItemCollectedEvent;
+	public static event Action<ScoreManager.Items> UpdateScoreEvent;
     public static event Action PlayerDiedEvent;
 
     void Start () {
         initPosition = transform.position;
-        jumpForce = GameManager.Instance.JumpForce;
-        startingForce = GameManager.Instance.StartJumpForce;
+		jumpForce = GameManager.Instance.JumpForce;
+		startingForce = GameManager.Instance.StartJumpForce;
+		ScoreManager sm = ScoreManager.Instance;
 	}
 
     void Reset()
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 			}
 			rg.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
             FireItemCollectedEvent(ScoreManager.Items.banana);
+			FireUpdateScoreEvent(ScoreManager.Items.banana);
 
         } else if (other.CompareTag("brain"))
         {
@@ -60,6 +61,14 @@ public class PlayerController : MonoBehaviour {
             ItemCollectedEvent(item);
         }
     }
+
+	void FireUpdateScoreEvent(ScoreManager.Items item)
+	{
+		if (UpdateScoreEvent != null)
+		{
+			UpdateScoreEvent(item);
+		}
+	}
 
     private void Death()
     {
