@@ -4,7 +4,6 @@ public class CameraFollow : MonoBehaviour {
 
     public GameObject player;
     public float cameraOffset = 5f;
-    public float characterGameSpeed = 10.0F;
     private Vector3 initPosition;
 
     void Start()
